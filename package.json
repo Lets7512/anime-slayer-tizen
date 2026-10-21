@@ -1,0 +1,16 @@
+{
+  "name": "@tvmods/anime-slayer",
+  "version": "1.0.0",
+  "packageType": "app",
+  "appName": "Anime Slayer",
+  "description": "Arabic anime streaming (animeslayer.to) for Samsung Tizen TVs",
+  "appPath": "app/index.html",
+  "keys": [
+    "MediaPlayPause",
+    "MediaPlay",
+    "MediaPause",
+    "MediaStop",
+    "MediaFastForward",
+    "MediaRewind"
+  ]
+}

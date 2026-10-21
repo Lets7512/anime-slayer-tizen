@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Anime Slayer</title>
+<style>
+  html,body{margin:0;height:100%;background:#0b0b0f;color:#eee;font-family:sans-serif}
+  #wrap{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2em}
+  h1{font-size:2.2em;margin:0;font-weight:600}
+  p{color:#9aa;margin:0;font-size:1.1em}
+  button{font-size:1.4em;padding:.6em 1.6em;border-radius:.5em;border:0;background:#e33;color:#fff}
+  button:focus{outline:3px solid #fff}
+  #err{color:#f99;font-size:1em;max-width:80%;text-align:center}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <h1>انمي سلاير</h1>
+  <p id="msg">جارٍ فتح الموقع…</p>
+  <button id="go" autofocus>فتح الآن</button>
+  <div id="err"></div>
+</div>
+<script>
+  var SITE = "https://animeslayer.to/";
+  function open() {
+    try { window.location.replace(SITE); }
+    catch (e) { document.getElementById("err").textContent = String(e); }
+  }
+  var t = setTimeout(open, 900);
+  document.getElementById("go").addEventListener("click", function () { clearTimeout(t); open(); });
+  window.addEventListener("keydown", function (ev) {
+    if (ev.keyCode === 13) { clearTimeout(t); open(); }
+  });
+  setTimeout(function () {
+    if (document.visibilityState === "visible") {
+      document.getElementById("msg").textContent = "إذا لم يفتح الموقع تلقائيًا اضغط الزر";
+    }
+  }, 4000);
+</script>
+</body>
+</html>
